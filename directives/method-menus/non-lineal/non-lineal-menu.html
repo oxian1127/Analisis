@@ -1,0 +1,22 @@
+<md-menu md-offset="0 -5">
+  <md-button class="md-raised" aria-label="Open menu" ng-click="openNonLinealMenu($mdOpenMenu, $event)">
+    Ecuaciones no lineales
+  </md-button>
+  <md-menu-content width="5">
+    <md-menu-item>
+      <md-button ng-click="goTo('methods.non-lineal.bisection', {'fn': fn})">Bisection</md-button>
+    </md-menu-item>
+    <md-menu-item>
+      <md-button ng-click="goTo('methods.non-lineal.false-position', {'fn': fn})">Falsa posición</md-button>
+    </md-menu-item>
+    <md-menu-item>
+      <md-button ng-click="goTo('methods.non-lineal.newton', {'fn': fn})">Newton</md-button>
+    </md-menu-item>
+    <md-menu-item>
+      <md-button ng-click="goTo('methods.non-lineal.secant', {'fn': fn})">Secante</md-button>
+    </md-menu-item>
+      <md-menu-item>
+        <md-button ng-click="goTo('methods.non-lineal.fixedPoint', {'fn': fn})">Punto fijo</md-button>
+      </md-menu-item>
+  </md-menu-content>
+</md-menu>

@@ -1,0 +1,22 @@
+<div class="md-padding" layout="column">
+  <h2 class="md-title">Lineal Splines</h2>
+  <form name="paramsForm" ng-submit="linealSplines.lineal()">
+    <div layout="row">
+      <md-input-container flex>
+        <input type="file" aria-label="xs file" fileread="linealSplines.xsStr" required accept=".csv">Xs vector CSV file</input>
+      </md-input-container>
+      <md-input-container flex>
+        <input type="file" aria-label="ys file" fileread="linealSplines.ysStr" required accept=".csv">Ys vector CSV file</input>
+      </md-input-container>
+    </div>
+    <div layout="row" layout-wrap>
+      <md-button class="md-raised md-primary" flex type="submit">
+        Evaluate
+      </md-button>
+    </div>
+  </form>
+  <div layout="column" flex-sm="100" flex="33" layout-align="center center">
+    <interpolation-menu>
+  </div>
+  <h1 ng-repeat='y in linealSplines.ecuaciones'>{{y.Eq}} | {{y.Lim}}</h1>
+</div>

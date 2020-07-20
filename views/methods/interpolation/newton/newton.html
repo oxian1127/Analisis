@@ -1,0 +1,18 @@
+<div class="md-padding" layout="column">
+    <h2 class="md-title">Newton method</h2>
+    <form name="paramsForm" ng-submit="newtonInterpolation.calculate(paramsForm)">
+        <div layout="row">
+            <md-input-container flex>
+                <input type="file" aria-label="xs file" fileread="newtonInterpolation.xs" accept=".csv">Xs vector CSV file</input>
+            </md-input-container>
+            <md-input-container flex>
+                <input type="file" aria-label="ys file" fileread="newtonInterpolation.ys" accept=".csv">Ys vector CSV file</input>
+            </md-input-container>
+        </div>
+        <div layout="row" layout-wrap>
+            <md-button class="md-raised md-primary" flex type="submit">
+                Evaluate
+            </md-button>
+        </div>
+    </form>
+</div>

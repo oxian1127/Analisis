@@ -1,0 +1,103 @@
+<div class="md-padding" layout="column">
+    <h2 class="md-title">Fixed Point</h2>
+    <form name="paramsForm" ng-submit="fixedPointCtrl.calculate(paramsForm)">
+        <md-input-container flex>
+            <label>Function</label>
+            <input required name="fn" ng-model="fixedPointCtrl.params.fn">
+            <div ng-messages="paramsForm.fn.$error">
+                <div ng-message="required">This is required.</div>
+            </div>
+        </md-input-container>
+        <md-input-container flex>
+            <label>Modified function</label>
+            <input required name="dr" ng-model="fixedPointCtrl.params.dr">
+            <div ng-messages="paramsForm.dr.$error">
+                <div ng-message="required">This is required.</div>
+            </div>
+        </md-input-container>
+        <div layout="row">
+            <md-input-container flex>
+                <label>Value of x</label>
+                <input required name="a" ng-model="fixedPointCtrl.params.a">
+                <div ng-messages="paramsForm.a.$error">
+                    <div ng-message="required">a is required.</div>
+                </div>
+            </md-input-container flex>
+        </div>
+        <div layout="row">
+            <md-input-container flex>
+                <label>Maximum itereations</label>
+                <input ng-model="fixedPointCtrl.params.nmax">
+                <div ng-messages="paramsForm.a.$error">
+                    <div ng-message="required">This is required.</div>
+                </div>
+            </md-input-container>
+            <md-input-container flex>
+                <label>Tolerance (optional)</label>
+                <input ng-model="fixedPointCtrl.params.tol">
+            </md-input-container>
+        </div>
+        <div layout="row" layout-wrap>
+            <md-button class="md-raised md-primary" flex type="submit">
+                Evaluate
+            </md-button>
+        </div>
+    </form>
+    <div layout="column" flex-sm="100" flex="33" layout-align="center center">
+      <non-lineal-menu fn="fixedPointCtrl.params.fn">
+    </div>
+    <div ng-show="fixedPointCtrl.results.length > 0">
+        <md-data-table-toolbar>
+            <h2 class="md-title">Results</h2>
+        </md-data-table-toolbar>
+        <md-data-table-container>
+            <table title="Results" md-data-table>
+                <thead>
+                <tr>
+                    <th numeric name="Iteration"></th>
+                    <th numeric name="x"></th>
+                    <th numeric name="f(x)"></th>
+                    <!-- <th numeric name="f'(x)"></th> -->
+                    <th numeric name="Error"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="result in fixedPointCtrl.results">
+                    <td>{{ $index + 1 }}</td>
+                    <td>{{ result.x }}</td>
+                    <td>{{ result.fx }}</td>
+                    <!--<td>{{ result.fdr }}</td>-->
+                    <td>{{ result.error }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </md-data-table-container>
+    </div>
+    <div layout layout-align="center center">
+        <md-button ng-click="fixedPointCtrl.toggleInfo()">Info</md-button>
+    </div>
+
+    <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="info">
+        <md-toolbar class="md-theme-light">
+            <h1 class="md-toolbar-tools">Info</h1>
+        </md-toolbar>
+        <md-content class="md-padding" layout-padding>
+            <p>
+                In numerical analysis, fixed-point iteration is a method of computing fixed points of iterated functions.
+                More specifically, given a function f defined on the real numbers with real values and given a point x0 in the domain of f, the fixed
+                point iteration is
+                x(n+1)=f(xn), n=0, 1, 2 ...
+                which gives rise to the sequence x0, x1, x2, ... which is hoped to converge to a point x. If f is continuous, then one
+                can prove that the obtained x is a fixed point of f, i.e.,
+                f(x)=x.
+                More generally, the function f can be defined on any metric space with values in that same space.
+            </p>
+            <md-button ng-href="https://en.wikipedia.org/wiki/Newton%27s_method" target="_blank">
+                Learn more
+            </md-button>
+            <md-button ng-click="fixedPointCtrl.closeInfo()" class="md-primary">
+                Got it
+            </md-button>
+        </md-content>
+    </md-sidenav>
+</div>

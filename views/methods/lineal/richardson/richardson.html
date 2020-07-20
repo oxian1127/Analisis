@@ -1,0 +1,80 @@
+<div class="md-padding" layout="column">
+  <h2 class="md-title">Richardson</h2>
+  <form name="paramsForm" ng-submit="richardson.calculate()">
+    <div layout="row">
+        <md-input-container flex>
+            <input aria-label="Matrix A" accept=".csv" type="file" fileread="richardson.fileA">Matrix A</input>
+        </md-input-container>
+        <md-input-container flex>
+            <input aria-label="Vector b" accept=".csv" type="file" fileread="richardson.fileb">Vector b</input>
+        </md-input-container>
+        <md-input-container flex>
+            <input aria-label="Vector x" accept=".csv" type="file" fileread="richardson.filex">Vector x</input>
+        </md-input-container>
+    </div>
+    <div layout="row">
+      <md-input-container flex>
+        <label>Maximum itereations</label>
+        <input required ng-model="richardson.nmax">
+      </md-input-container>
+      <md-input-container flex>
+        <label>Tolerance</label>
+        <input ng-model="richardson.tol">
+      </md-input-container>
+
+    </div>
+    <div layout="row">
+        <md-input-container flex>
+            <label>Delta</label>
+            <input ng-model="richardson.delta">
+        </md-input-container>
+    </div>
+    <div layout="row" layout-wrap>
+      <md-button class="md-raised md-primary" flex type="submit">
+        Evaluate
+      </md-button>
+    </div>
+  </form>
+  <div layout="column" flex-sm="100" flex="33" layout-align="center center">
+    <lineal-menu>
+  </div>
+    <md-data-table-toolbar>
+        <h2 class="md-title">Results</h2>
+    </md-data-table-toolbar>
+    <md-data-table-container>
+    <table md-data-table md-progress="deferred">
+      <thead>
+        <tr>
+          <th numeric name="Iteration"></th>
+          <th numeric name="x vector"></th>
+          <th numeric name="Error"></th>
+        </tr>
+      </thead>
+      <tr ng-repeat="x in richardson.res">
+        <td>{{$index+1}}</td>
+        <td>{{x.x}}</td>
+        <td>{{x.error}}</td>
+      </tr>
+    </md-data-table-container>
+    </table>
+
+    <div layout layout-align="center center">
+        <md-button ng-click="richardson.toggleInfo()">Info</md-button>
+    </div>
+  <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="info">
+    <md-toolbar class="md-theme-light">
+      <h1 class="md-toolbar-tools">Info</h1>
+    </md-toolbar>
+    <md-content class="md-padding" layout-padding>
+      <p>
+        It was proposed by Lewis Richardson in his work dated 1910. It is similar to the Jacobi and Gauss–Seidel method
+      </p>
+      <md-button ng-href="https://en.wikipedia.org/wiki/Modified_Richardson_iteration" target="_blank">
+        Learn more
+      </md-button>
+      <md-button ng-click="richardson.closeInfo()" class="md-primary">
+        Got it
+      </md-button>
+    </md-content>
+  </md-sidenav>
+</div>

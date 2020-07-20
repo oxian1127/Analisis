@@ -1,0 +1,19 @@
+<md-menu md-offset="0 -5">
+  <md-button class="md-raised" aria-label="Open menu" ng-click="openLinealMenu($mdOpenMenu, $event)">
+    Interpolation
+  </md-button>
+  <md-menu-content width="4">
+    <md-menu-item>
+      <md-button ui-sref="methods.interpolation.cubicSplines">Cublic splines</md-button>
+    </md-menu-item>
+    <md-menu-item>
+      <md-button ui-sref="methods.interpolation.linealSplines">Lineal splines</md-button>
+    </md-menu-item>
+    <md-menu-item>
+      <md-button ui-sref="methods.interpolation.lagrange">Lagrange</md-button>
+    </md-menu-item>
+    <md-menu-item>
+      <md-button ui-sref="methods.interpolation.reduction">Reduction</md-button>
+    </md-menu-item>
+  </md-menu-content>
+</md-menu>

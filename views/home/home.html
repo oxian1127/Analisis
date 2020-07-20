@@ -1,0 +1,33 @@
+<div class="md-padding" layout="column">
+  <p class="inset" layout layout-align="center center">
+    Seleccione una opción
+  </p>
+  <div layout="row" flex-sm="100" flex="33" layout-align="center center">
+    <non-lineal-menu></non-lineal-menu>
+    <lineal-menu></lineal-menu>
+    <interpolation-menu></interpolation-menu>
+  </div>
+
+  <div layout layout-align="center center">
+    <md-button ng-click="home.toggleInfo()">Informacion</md-button>
+  </div>
+
+  <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="info">
+    <md-toolbar class="md-theme-light">
+      <h1 class="md-toolbar-tools">Información del metodo</h1>
+    </md-toolbar>
+    <md-content class="md-padding" layout-padding>
+      <p>
+        El análisis numérico es el estudio de algoritmos que utilizan aproximación numérica.
+        (a diferencia de las manipulaciones simbólicas generales)
+        para los problemas del análisis matemático (a diferencia de las matemáticas discretas).
+      </p>
+      <md-button ng-href="https://en.wikipedia.org/wiki/Newton%27s_method" target="_blank">
+        Mas información
+      </md-button>
+      <md-button ng-click="home.closeInfo()" class="md-primary">
+        Entendido...
+      </md-button>
+    </md-content>
+  </md-sidenav>
+</div>

@@ -1,0 +1,63 @@
+<div class="md-padding" layout="column">
+  <h2 class="md-title">Jacobi</h2>
+  <form name="paramsForm" ng-submit="jacobi.calculate(paramsForm)">
+    <div layout="row">
+      <md-input-container flex>
+        <input type="file" aria-label="A file" fileread="jacobi.matAStr" accept=".csv" required>Matrix A CSV file</input>
+      </md-input-container>
+      <md-input-container flex>
+        <input type="file" aria-label="b file" fileread="jacobi.vectBStr" accept=".csv" required>Vector b CSV file</input>
+      </md-input-container>
+      <md-input-container flex>
+        <input type="file" aria-label="x file" fileread="jacobi.vectXStr" accept=".csv" required>Vector x CSV file</input>
+      </md-input-container>
+    </div>
+    <div layout="row">
+      <md-input-container flex>
+        <label>Maximum itereations</label>
+        <input ng-model="jacobi.options.nmax">
+      </md-input-container>
+      <md-input-container flex>
+        <label>Tolerance (optional)</label>
+        <input ng-model="jacobi.options.tol">
+      </md-input-container>
+      <md-input-container flex>
+        <label>Delta (optional)</label>
+        <input ng-model="jacobi.options.delta">
+      </md-input-container>
+    </div>
+    <div layout="row" layout-wrap>
+      <md-button class="md-raised md-primary" flex type="submit">
+        Evaluate
+      </md-button>
+    </div>
+  </form>
+  <div layout="column" flex-sm="100" flex="33" layout-align="center center">
+    <lineal-menu>
+  </div>
+  <div ng-show="jacobi.results.length > 0">
+    <md-data-table-toolbar>
+      <h2 class="md-title">Results</h2>
+    </md-data-table-toolbar>
+    <md-data-table-container>
+      <table title="Results" md-data-table>
+        <thead>
+          <tr>
+            <th numeric name="Iteration"></th>
+            <th numeric name="x vector"></th>
+            <th numeric name="Delta"></th>
+            <th numeric name="Error"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="result in jacobi.results">
+            <td>{{ $index + 1 }}</td>
+            <td>{{ result.x }}</td>
+            <td>{{ result.delta }}</td>
+            <td>{{ result.error }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </md-data-table-container>
+  </div>
+</div>

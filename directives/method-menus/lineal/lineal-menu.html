@@ -1,0 +1,16 @@
+<md-menu md-offset="0 -5">
+  <md-button class="md-raised" aria-label="Open menu" ng-click="openLinealMenu($mdOpenMenu, $event)">
+    Lineal systems
+  </md-button>
+  <md-menu-content width="4">
+    <md-menu-item>
+      <md-button ui-sref="methods.lineal.jacobi">Jacobi</md-button>
+    </md-menu-item>
+    <md-menu-item>
+      <md-button ui-sref="methods.lineal.sor">S.O.R</md-button>
+    </md-menu-item>
+    <md-menu-item>
+      <md-button ui-sref="methods.lineal.richardson">Richardson</md-button>
+    </md-menu-item>
+  </md-menu-content>
+</md-menu>

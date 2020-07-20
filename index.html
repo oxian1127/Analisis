@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Analisis Numerico App</title>
+    <link rel="stylesheet" type="text/css" href="lib/angular-material/angular-material.css" charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="lib/angular-material-data-table/dist/md-data-table.min.css">
+    <link href="node_modules/@angular/material/prebuilt-themes/indigo-pink.css" rel="stylesheet">
+  </head>
+  <body ng-app="numerical-analysis">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <a ui-sref="home">
+          <h2 class="md-flex" ui-sref="home">Analisis Numerico App</h2>
+        </a>
+      </div>
+    </md-toolbar>
+    <div ui-view></div>
+
+    <!-- angular and project dependencies -->
+    <script src="lib/angular/angular.js" type="text/javascript"></script>
+    <script src="lib/ui-router/release/angular-ui-router.min.js" type="text/javascript"></script>
+    <script src="lib/angular-animate/angular-animate.js" type="text/javascript"></script>
+    <script src="lib/angular-aria/angular-aria.min.js" type="text/javascript"></script>
+    <script src="lib/angular-messages/angular-messages.min.js" type="text/javascript"></script>
+    <script src="lib/angular-material/angular-material.min.js" type="text/javascript"></script>
+    <script src="lib/angular-material-data-table/dist/md-data-table.min.js" type="text/javascript"></script>
+    <script src="lib/js-expression-eval/parser.js" type="text/javascript"></script>
+    <script src="lib/sylvester/sylvester.js" type="text/javascript"></script>
+
+    <!-- main module -->
+    <script src="main.js" type="text/javascript"></script>
+
+    <!-- services -->
+    <script src="services/method-commons.service.js" type="text/javascript"></script>
+    <script src="services/bisection.service.js" type="text/javascript"></script>
+    <script src="services/false-position.service.js" type="text/javascript"></script>
+    <script src="services/newton.service.js" type="text/javascript"></script>
+    <script src="services/secant.service.js" type="text/javascript"></script>
+    <script src="services/fixedPoint.service.js" type="text/javascript"></script>
+    <script src="services/jacobi.service.js" type="text/javascript"></script>
+    <script src="services/utils.service.js" type="text/javascript"></script>
+    <script src="services/sor.service.js" type="text/javascript"></script>
+    <script src="services/richardson.service.js" type="text/javascript"></script>
+    <script src="services/cubic-splines.service.js" type="text/javascript"></script>
+	<script src="services/reduction.service.js" type="text/javascript"></script>
+
+    <!-- directives -->
+    <script src="directives/fileread/fileread.dir.js" type="text/javascript"></script>
+    <script src="directives/method-menus/non-lineal/non-lineal-menu.dir.js" type="text/javascript"></script>
+    <script src="directives/method-menus/lineal/lineal-menu.dir.js" type="text/javascript"></script>
+    <script src="directives/method-menus/interpolation/interpolation-menu.dir.js" type="text/javascript"></script>
+
+    <!-- views -->
+    <script src="views/home/home.config.js" type="text/javascript"></script>
+    <script src="views/home/home.ctrl.js" type="text/javascript"></script>
+    <script src="views/methods/methods.config.js" type="text/javascript"></script>
+    <script src="views/methods/non-lineal/non-lineal.config.js" type="text/javascript"></script>
+    <script src="views/methods/non-lineal/bisection/bisection.config.js" type="text/javascript"></script>
+    <script src="views/methods/non-lineal/bisection/bisection.ctrl.js" type="text/javascript"></script>
+    <script src="views/methods/non-lineal/false-position/false-position.config.js" type="text/javascript"></script>
+    <script src="views/methods/non-lineal/false-position/false-position.ctrl.js" type="text/javascript"></script>
+    <script src="views/methods/non-lineal/newton/newton.config.js" type="text/javascript"></script>
+    <script src="views/methods/non-lineal/newton/newton.ctrl.js" type="text/javascript"></script>
+    <script src="views/methods/non-lineal/secant/secant.config.js" type="text/javascript"></script>
+    <script src="views/methods/non-lineal/secant/secant.ctrl.js" type="text/javascript"></script>
+    <script src="views/methods/non-lineal/fixedPoint/fixedPoint.config.js" type="text/javascript"></script>
+    <script src="views/methods/non-lineal/fixedPoint/fixedPoint.ctrl.js" type="text/javascript"></script>
+    <script src="views/methods/lineal/lineal.config.js" type="text/javascript"></script>
+    <script src="views/methods/lineal/jacobi/jacobi.config.js" type="text/javascript"></script>
+    <script src="views/methods/lineal/jacobi/jacobi.ctrl.js" type="text/javascript"></script>
+    <script src="views/methods/lineal/sor/sor.config.js" type="text/javascript"></script>
+    <script src="views/methods/lineal/sor/sor.ctrl.js" type="text/javascript"></script>
+    <script src="views/methods/lineal/richardson/richardson.config.js" type="text/javascript"></script>
+    <script src="views/methods/lineal/richardson/richardson.ctrl.js" type="text/javascript"></script>
+    <script src="views/methods/interpolation/interpolation.config.js" type="text/javascript"></script>
+    <script src="views/methods/interpolation/cubic-splines/cubic-splines.config.js" type="text/javascript"></script>
+    <script src="views/methods/interpolation/cubic-splines/cubic-splines.ctrl.js" type="text/javascript"></script>
+    <script src="views/methods/interpolation/lineal-splines/lineal-splines.config.js" type="text/javascript"></script>
+    <script src="views/methods/interpolation/lineal-splines/lineal-splines.ctrl.js" type="text/javascript"></script>
+    <script src="views/methods/interpolation/lagrange/lagrange.config.js" type="text/javascript"></script>	
+    <script src="views/methods/interpolation/lagrange/lagrange.ctrl.js" type="text/javascript"></script>
+	<script src="views/methods/interpolation/reduction/reduction.config.js" type="text/javascript"></script>
+    <script src="views/methods/interpolation/reduction/reduction.ctrl.js" type="text/javascript"></script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<div class="md-padding" layout="column">
+	<h2 class="md-title">Reduction</h2>
+	<form name="" ng-submit="reduction.reduction()">
+		<div layout="row">
+			<md-input-container flex>
+				<input type="file" aria-label="xs file" fileread="reduction.Xs" required accept=".csv">Xs vector CSV file</input>
+			</md-input-container>
+			<md-input-container flex>
+				<input type="file" aria-label="ys file" fileread="reduction.Ys" required accept=".csv">Ys vector CSV file</input>
+			</md-input-container>
+		</div>
+		<div layout="row" layout-wrap>
+			<md-button class="md-raised md-primary" flex type="submit">
+				Evaluate
+			</md-button>
+		</div>
+		<div layout="column" flex-sm="100" flex="33" layout-align="center center">
+    		<interpolation-menu>
+  		</div>
+	</form>
+	<pre style="font-family:arial; font-size:2 em;">{{reduction.res}}</pre>
+</div>

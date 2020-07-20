@@ -1,0 +1,101 @@
+<div class="md-padding" layout="column">
+  <h2 class="md-title">False Position</h2>
+  <form name="paramsForm" ng-submit="falsePosCtrl.calculate(paramsForm)">
+    <md-input-container flex>
+      <label>Function</label>
+      <input required name="fn" ng-model="falsePosCtrl.params.fn">
+      <div ng-messages="paramsForm.fn.$error">
+        <div ng-message="required">This is required.</div>
+      </div>
+    </md-input-container>
+    <div layout="row">
+      <md-input-container flex>
+        <label>Value of a</label>
+        <input required name="a" ng-model="falsePosCtrl.params.a">
+        <div ng-messages="paramsForm.a.$error">
+          <div ng-message="required">a is required.</div>
+        </div>
+      </md-input-container flex>
+      <md-input-container flex>
+        <label>Value of b</label>
+        <input required name="b" ng-model="falsePosCtrl.params.b">
+        <div ng-messages="paramsForm.b.$error">
+          <div ng-message="required">b is required.</div>
+        </div>
+      </md-input-container>
+    </div>
+    <div layout="row">
+      <md-input-container flex>
+        <label>Maximum itereations</label>
+        <input ng-model="falsePosCtrl.params.nmax">
+        <div ng-messages="paramsForm.a.$error">
+          <div ng-message="required">This is required.</div>
+        </div>
+      </md-input-container>
+      <md-input-container flex>
+        <label>Tolerance (optional)</label>
+        <input ng-model="falsePosCtrl.params.tol">
+      </md-input-container>
+      <md-input-container flex>
+        <label>Delta (optional)</label>
+        <input ng-model="falsePosCtrl.params.delta">
+      </md-input-container>
+    </div>
+    <div layout="row" layout-wrap>
+      <md-button class="md-raised md-primary" flex type="submit">
+        Evaluate
+      </md-button>
+    </div>
+  </form>
+  <div layout="column" flex-sm="100" flex="33" layout-align="center center">
+    <non-lineal-menu fn="falsePosCtrl.params.fn">
+  </div>
+  <div ng-show="falsePosCtrl.results.length > 0">
+    <md-data-table-toolbar>
+      <h2 class="md-title">Results</h2>
+    </md-data-table-toolbar>
+    <md-data-table-container>
+      <table title="Results" md-data-table>
+        <thead>
+          <tr>
+            <th numeric name="Iteration"></th>
+            <th numeric name="x"></th>
+            <th numeric name="f(x)"></th>
+            <th numeric name="Error"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="result in falsePosCtrl.results">
+            <td>{{ $index + 1 }}</td>
+            <td>{{ result.x }}</td>
+            <td>{{ result.fx }}</td>
+            <td>{{ result.error }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </md-data-table-container>
+  </div>
+  <div layout layout-align="center center">
+    <md-button ng-click="falsePosCtrl.toggleInfo()">Info</md-button>
+  </div>
+
+  <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="info">
+    <md-toolbar class="md-theme-light">
+      <h1 class="md-toolbar-tools">Info</h1>
+    </md-toolbar>
+    <md-content class="md-padding" layout-padding>
+      <p>
+        The false position method or regula falsi method is a term for problem-solving methods in
+        arithmetic, algebra, and calculus. In simple terms, these methods begin by attempting to
+        evaluate a problem using test ("false") values for the variables, and then adjust the
+        values accordingly.
+      </p>
+      <md-button ng-href="https://en.wikipedia.org/wiki/False_position_method" target="_blank">
+        Learn more
+      </md-button>
+      <md-button ng-click="falsePosCtrl.closeInfo()" class="md-primary">
+        Got it
+      </md-button>
+    </md-content>
+  </md-sidenav>
+</div>

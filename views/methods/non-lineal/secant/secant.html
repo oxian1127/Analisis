@@ -1,0 +1,65 @@
+<div class="md-padding" layout="column">
+  <md-content layout-padding>
+      <md-input-container>
+        <label>Function</label>
+        <input required name="UserFunction" ng-model="secantCtrl.func">
+      </md-input-container>
+     <form ng-submit="secantCtrl.Calculate()">
+       <md-input-container>
+         <label>a</label>
+         <input required name="a" ng-model="secantCtrl.a">
+       </md-input-container>
+
+       <md-input-container>
+         <label>b</label>
+         <input required name="b" ng-model="secantCtrl.b">
+       </md-input-container>
+
+       <md-input-container>
+         <label>Max number of iterations</label>
+         <input required name="nmax" ng-model="secantCtrl.nmax">
+       </md-input-container>
+
+       <md-input-container>
+         <label>Tolerancy</label>
+         <input required name="tol" ng-model="secantCtrl.tol">
+       </md-input-container>
+
+       <md-input-container>
+         <label>Delta</label>
+         <input required name="delta" ng-model="secantCtrl.delta">
+       </md-input-container>
+      <div layout="row">
+         <md-button type="submit" class="md-raised md-primary">Calculate</md-button>
+      </div>
+     </form>
+
+    <div layout="column" flex-sm="100" flex="33" layout-align="center center">
+      <non-lineal-menu fn="secantCtrl.func">
+    </div>
+
+    <h1>x = {{secantCtrl.result}}</h1>
+
+    <md-data-table-toolbar>
+    <h2 class="md-title">Results</h2>
+    </md-data-table-toolbar>
+    <md-data-table-container>
+    <table md-data-table md-progress="deferred">
+      <thead>
+        <tr>
+          <th>i</th>
+          <th>x</th>
+          <th>f(x)</th>
+          <th>Error</th>
+        </tr>
+      </thead>
+      <tr ng-repeat="x in secantCtrl.arrx track by $index">
+        <td>{{$index}}</td>
+        <td>{{x}}</td>
+        <td>{{secantCtrl.arrf[$index]}}</td>
+        <td>{{secantCtrl.arrError[$index]}}</td>
+      </tr>
+    </md-data-table-container>
+    </table>
+  </md-content>
+</div>
